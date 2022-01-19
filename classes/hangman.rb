@@ -27,7 +27,7 @@ class Hangman
 
       @hidden_word, @error_count = check_guess(guess, @current_word, @hidden_word, @error_count)
 
-      check_save if @error_count < 6
+      check_save if @error_count < 6 && @hidden_word.include?('_')
     end
 
     puts @error_count < 6 ? COMMON_MESSAGES[:winner] : COMMON_MESSAGES[:loser]
